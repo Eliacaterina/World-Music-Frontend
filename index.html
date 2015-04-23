@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="js/applications.js"></script>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+<body> 
+  <div id="home">
+    <div class="container">
+      <div class="row" id="front">
+        <div class="col-xs-12 col-md-offset-3">
+          <div class="col-xs-12 col-md-6" id="homePage">
+            <h1>Welcome to GlobeTunes</h1><i class="fa fa-music fa-fw fa-3x"></i>
+            <h3>The world's music at your fingertips</h3>
+            <p id="summary">In a world where music is the universal language of mankind, and where cultures and nations embedd their individual essence into their musical tunes. GlobeTunes is an innovative project dedicated to bringing you the best tunes from each country.</p>
+          </div>
+          <div class="col-xs-12 col-md-3">
+            <div id="signInForm">
+              <h2 id="loginf">LOGIN</h2>
+              <span><input class="userPass1" type="text" class="form-control" placeholder="Username"></span>
+              <span><input class="userPass" id ="passwordInput" type="password" class="form-control" placeholder="Password"></span>
+              <p>
+                <button id="startButton" type="button" class="btn btn-primary">START!</button>      
+              </p>
+               <p id="Sing-up-form">Not yet a User? <span id="join"><strong>Sing up!</strong><span></p>   
+            </div>
+            <div id="signUpForm">
+              <h2 id="singUpf">Sign up</h2>
+              <span><input class="userPass2" type="text" class="form-control" placeholder="Username"></span>
+              <span><input class="userPass3" type="text" class="form-control" placeholder="Email"></span>
+              <span><input class="userPass4" id ="passwordInput" type="password" class="form-control" placeholder="Password"></span>
+              <p>
+                <button id="startButton2" type="button" class="btn btn-primary">START!</button>      
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="page2">
+    <center>
+      <div class ="container" id="containerP2">
+        <div class="row">
+          <div class="btn-group open">
+            <a class="btn btn-primary" href="#"><i class="fa fa fa-globe fa-spin fa-fw"></i> Choose your country</a>
+            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+              <span class="fa fa-caret-down"></span></a>
+            <ul class="dropdown-menu">
+            </ul>
+          </div>
+        </div>
+      </div>
+    </center>
+  </div>
+  <div class ="page3">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Artist</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody class="tableContent">
+<!--         <tr>
+          <td>Ciao</td>
+          <td>Ciao</td>
+          <td>http://hhhhhhhh</td>
+        </tr> -->
+      </tbody>
+    </table>
+    <form class="submitNewSong">
+      <div class="row" id="">
+        <div class="col-xs-4">
+          <input class="title"type="text" class="form-control" placeholder="Title">
+        </div>
+        <div class="col-xs-4">
+          <input class="artist" type="text" class="form-control" placeholder="Artist">
+        </div>
+        <div class="col-xs-4">
+          <input class="url" type="text" class="form-control" placeholder="Link">
+        </div>
+      </div>
+    </form>
+  </div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</body>
+</html>
