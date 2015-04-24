@@ -12,12 +12,13 @@
 </head>
 <body> 
   <nav class="navbar navbar-default navbar-fixed-top" id="header">
-      <a class="navbar-brand navbar-left" href="#">
+      <a class="navbar-brand navbar-left" style="
+    padding-top: 9px;" href="#">
           <i class="fa fa-headphones fa-2x"></i>
       </a>
       <div class="navbar-header navbar-right">
         <div class="btn-group">
-          <button class="btn btn-default btn-sm" id="logout-btn" type="button">
+          <button class="btn btn-default btn-sm" id="logout-btn" style="display:none" type="button">
            Signout 
           </button>
         </div>
@@ -44,9 +45,9 @@
             </div>
             <div id="signUpForm">
               <h2 id="singUpf">Sign up</h2>
-              <span><input class="userPass2" type="text" class="form-control" placeholder="Username"></span>
-              <span><input class="userPass3" type="text" class="form-control" placeholder="Email"></span>
-              <span><input class="userPass4" id ="passwordInput" type="password" class="form-control" placeholder="Password"></span>
+              <span><input id="userPass2" type="text" class="form-control" placeholder="Username"></span>
+              <span><input id="userPass3" type="text" class="form-control" placeholder="Email"></span>
+              <span><input id="userPass4" id ="passwordInput" type="password" class="form-control" placeholder="Password"></span>
               <p>
                 <button id="startButton2" type="button" class="btn btn-primary">START!</button>      
               </p>
@@ -54,20 +55,23 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </div>     
+  </div>       
   <div id="page2">
     <center>
       <div class ="container" id="containerP2">
         <div class="row">
           <div class="btn-group">
             <a class="btn btn-primary" href="#"><i class="fa fa fa-globe fa-spin fa-fw"></i> Choose your country</a>
-            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded='false'>
+            <a id="countryDropdown" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded='false'>
               <span class="fa fa-caret-down"></span></a>
             <ul class="dropdown-menu">
             </ul>
           </div>
         </div>
+        <p id="cutie">
+          <img src="/Pictures/cutie.png">
+        </p>
       </div>
     </center>
   </div>
@@ -81,11 +85,7 @@
         </tr>
       </thead>
       <tbody class="tableContent">
-<!--         <tr>
-          <td>Ciao</td>
-          <td>Ciao</td>
-          <td>http://hhhhhhhh</td>
-        </tr> -->
+
       </tbody>
     </table>
     <form class="submitNewSong">
@@ -103,6 +103,10 @@
       <button id="submitButton" type="button" class="btn btn-primary">Submit</button>      
     </form>
   </div>
+<div class="panel-footer">
+  <p>&copy; About us | Privacy | Terms <img id="footerPic" src="/Pictures/cutie.png" style= "width: 40px;"> </p>
+</div>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
 </body>
 </html>

@@ -38,6 +38,7 @@ p {
   border-color:#877487;
   color: white;
   text-shadow: 2px 2px 2px #000000;
+  box-shadow: 2px 2px 2px #000000;
 }
 
 #header{
@@ -49,11 +50,13 @@ p {
 
 .fa-headphones {
   color: white;
+  text-shadow: 2px 2px 2px #000000;
 }
 
 
 
-.userPass, .userPass1, .userPass2, .userPass3, .userPass4  {
+.userPass, .userPass1, .userPass2, .userPass3, .userPass4 ,
+#userPass, #userPass1, #userPass2, #userPass3, #userPass4  {
   display: block;
   width: 230px;
   margin: auto;
@@ -117,10 +120,12 @@ p {
   border-top-color: transparent;
   margin-top: 15px;
   border-color: transparent;
+  box-shadow: 2px 2px 2px #000000;
 }
 
 #startButton2 {
   margin-top: 15px;
+  box-shadow: 2px 2px 2px #000000;
 }
 
 #page2 {
@@ -152,6 +157,38 @@ p {
   margin-top: 60px;
 }
 
+#cutie { 
+  
+  margin-top: 120px;
+  margin-left: 10px;
+  text-shadow:5px 5px 5px #000000;
+
+  -webkit-animation: cssAnimation 3.4583s 30 ease;
+  -moz-animation: cssAnimation 3.4583s 30 ease;
+  -o-animation: cssAnimation 3.4583s 30 ease;
+  }
+  @-webkit-keyframes cssAnimation {
+  from { -webkit-transform: rotate(4deg) scale(1) skew(1deg) translate(10px); }
+  to { -webkit-transform: rotate(360deg) scale(0.798) skew(1deg) translate(0px); }
+  }
+  @-moz-keyframes cssAnimation {
+  from { -moz-transform: rotate(4deg) scale(1) skew(1deg) translate(10px); }
+  to { -moz-transform: rotate(360deg) scale(0.798) skew(1deg) translate(0px); }
+  }
+  @-o-keyframes cssAnimation {
+  from { -o-transform: rotate(4deg) scale(1) skew(1deg) translate(10px); }
+  to { -o-transform: rotate(360deg) scale(0.798) skew(1deg) translate(0px); };
+  text-shadow:5px 5px 5px #000000;
+  }
+
+#cutie1 {
+  margin-right: 0px;
+  margin-top: 60px;
+  width: 180px;
+  height: 180px;
+  text-align: center;
+}
+
 th, input {
   background-color: rgba(117, 34, 123, 0.4);
   background: rgba(117, 34, 123, 0.4);
@@ -165,5 +202,27 @@ th, input {
 }
 
 #submitButton {
-  width:100%;
+  width: 106px;
+  margin-left: 48%;
+  margin-top: 20px;
+  box-shadow: 2px 2px 2px #000000;
+}
+
+.submitNewSong {
+  width:1000px;
+}
+
+.panel-footer {
+  margin-top: 600px;
+  background-color: rgba(220, 171, 219, 0.2);
+  background: rgba(220, 171, 219, 0.2);
+  color: rgba(220, 171, 219);
+  border-bottom: transparent;
+  border-top: transparent;
+  padding-top: 15px;
+}
+}
+
+#footerPic {
+  width: 30px;
 }
