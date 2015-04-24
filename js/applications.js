@@ -2,32 +2,55 @@
 
 	var authenticate = function() {
 		$.ajax({
-		  type: "GET",
-		  url: "http://localhost:3000/authenticated",
-		  xhrFields: {
+	    type: "GET",
+	    url: "http://localhost:3000/authenticated",
+	    xhrFields: {
 		    withCredentials: true
 		  },
-		  success: function(response){
-		    console.log("is it", response);
-		  }
+	    success: function(response) {
+	    	console.log(response);
+	    	if(response.authenticated) {
+	    		$('#home').hide(1000);
+				  $('#page2').show(1000);
+	    	}
+	    }
 		});
-		// $.ajax({
-	 //    type: "GET",
-	 //    url: "http://localhost:3000/authenticated",
-	 //    xhrFields: {
-		//     withCredentials: true
-		//   },
-	 //    success: function(response) {
-	 //    	console.log(response);
-	 //    	if(response.authenticated) {
-	 //    		$('#home').hide(1000);
-		// 		  $('#page2').show(1000);
-	 //    	}
-	 //    }
-		// });
 	};
 
 	authenticate();
+
+	$(document).on('click', "#logout-btn", function(){
+		$.ajax({
+			type: "DELETE",
+			url: "http://localhost:3000/sessions",
+			xhrFields: {
+				withCredentials: true
+			},
+				success: function(response) {
+				 $('#home').show(1000);
+	 		   $('#page2').hide(1000);
+	 		   $('.page3').hide(1000);
+				} 
+		 });
+	});
+
+	// var logOut = function() {
+	// 	$.ajax({
+	//     type: "DELETE",
+	//     url: "http://localhost:3000/sessions",
+	//     xhrFields: {
+	// 	    withCredentials: true
+	// 	  },
+	//     success: function(response) {
+	//     	console.log(response);
+ //    		$('#home').show(1000);
+	// 		  $('#page2').hide(1000);
+	    	
+	//     }
+	// 	});
+	// };
+
+
 
 	$(document).on('click', "#startButton", function(event){
 
@@ -42,8 +65,10 @@
 	        password: $('.userPass').val()
 	      }
 	    },
-	    
-	   
+	    dataType: 'JSON',
+		  xhrFields: {
+		    withCredentials: true
+		  },
 	    success: function(response){
 
 	    	if (response.message != "user doesn't exist"){
@@ -52,6 +77,8 @@
 	    	}
 
 	      console.log("create session / logged in", response);
+		      $('.userPass1').val(""),
+		      $('.userPass').val("")
 	    }
 	  });
 	});
@@ -80,6 +107,9 @@
 			  });
 
 				console.log("created session", response);
+					$('.userPass2').val(""),
+				  $('.userPass3').val(""),
+			    $('.userPass4').val("")
 			}
 		});
 	});
@@ -108,78 +138,104 @@
 		}
 	});
 
-	// $(document).on('click', '#join', function(){
-	//   	console.log("test");
-	//   	$("#signInForm").hide(1000);
-	//   	$("#signUpForm").show(1000);
-	// }); 
+	$(document).on('click', '#join', function(){
+	  	console.log("test");
+	  	$("#signInForm").hide(1000);
+	  	$("#signUpForm").show(1000);
+	}); 
 
+	$("#signUpForm").hide();
 
-	
+	var Country;
+		  
+  $(document).on('click',"li",function(){
+		console.log(this);
+		Country = $(this).text()
 
-		// $("#signUpForm").hide();
-		
-	  
-	  
-	 
+		$.ajax({
+			type:"GET",
+			url: "http://localhost:3000/songs/" + Country,
+			success:function(response){
+			$('.tableContent').html('')
+				if (response == []){
+				 //show table code here without foreach loop
+				  $('.page3').show(1000);
+				} else {
+				 //also show table code with foreach loop
+					$('.page3').show(1000);
+					response.forEach(function(song){
+						if (song == undefined) { debugger }
+						var Country = song.Country;
+						var title   = song.title;
+						var artist  = song.artist;
+						var url     = song.url; 
+						$(".tableContent").append("<tr>" +
+							"<td>" + title + "</td>" +
+							"<td>" + artist + "</td>" +
+							"<td><a href+'url link'>" + url + "</a></td>");
+					})
+				}
+			}
+		})
+	});
+		// console.log(response);
+				// console.log(response[0].title);
+				// console.log(response[0].Country);
+				// $('.page3').show(1000);
+				// response.forEach(function(song){
+				// 	if (song == undefined) { debugger }
+				// 	var Country = song.Country;
+				// 	var title   = song.title;
+				// 	var artist  = song.artist;
+				// 	var url     = song.url; 
+				// 	$(".tableContent").append("<tr>" +
+				// 		"<td>" + title + "</td>" +
+				// 		"<td>" + artist + "</td>" +
+				// 		"<td><a href+'url link'>" + url + "</a></td>"
 
-	  
- //  $(document).on('click',"li",function(){
-	// 	console.log(this);
-	// 	var country = $(this).text()
+				// 	);
+				// })
 
-	// 	$.ajax({
-	// 		type:"GET",
-	// 		url: "http://localhost:3000/songs/" + country,
-	// 		success:function(response){
-	// 			console.log(response[0].title);
-	// 			console.log(response[0].country);
-	// 			$('.page3').show(1000);
-	// 			response.forEach(function(song){
+	$(document).on('click',"#submitButton", function(){
 
-	// 				var country = song.country;
-	// 				var title   = song.title;
-	// 				var artist  = song.artist;
-	// 				var url     = song.url; 
-	// 				$(".tableContent").append("<tr>" +
-	// 					"<td>" + title + "</td>" +
-	// 					"<td>" + artist + "</td>" +
-	// 					"<td><a href+'url link'>" + url + "</a></td>"
+		var title = $("#title").val();
+		var artist= $("#artist").val();
+		var link  = $("#url").val();
 
-	// 				);
-	// 				//<tr>
-	// 				//  <td>title</td>
-	// 				//  <td>artist</td>
-	// 				//  <td><a href='url link'>url</a></td>
-	// 				//</tr>
-	// 			})
-	// 		}
-	// 	})
-	// });
+		// debugger
 
-	// $(document).on('submit',".submitNewSong", function(){
+		console.log(title, artist, link)
 
-	// 	var title =$(".title").text();
-	// 	var artist=$(".artist").text();
-	// 	var link  =$(".url").text();
+		$.ajax({
+			type:"POST",
+			url:"http://localhost:3000/songs",
+			data: {
+				song: { 
+					title:  $('#title').val(),
+					artist: $('#artist').val(),
+					url:    $('#url').val(),
+					Country: Country
+				}
+			},
+			dataType: 'JSON',
+		  xhrFields: {
+		    withCredentials: true
+		  },
+			success:function(response){
 
-	// 	console.log(title, artist, link)
+				 $("#title").val("");
+ 				 $("#artist").val("");
+		     $("#url").val("");
 
-	// 	$.ajax({
-	// 		type:"POST",
-	// 		url:"http://localhost:3000/songs",
-	// 		success:function(response){
+				$(".tableContent").append("<tr>" +
+					"<td>" + title + "</td>" +
+					"<td>" + artist + "</td>" +
+					"<td><a href+'url link'>" + link + "</a></td>"
 
-	// 			$(".tableContent").append("<tr>" +
-	// 				"<td>" + title + "</td>" +
-	// 				"<td>" + artist + "</td>" +
-	// 				"<td><a href+'url link'>" + url + "</a></td>"
-
-	// 			);
-	// 		}
-
-	// 	})
-	// })
+				);
+			}
+		})
+	})
 
 	  
 
