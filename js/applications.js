@@ -132,6 +132,7 @@ $(document).ready(function(){
 	  	console.log("test");
 	  	$("#signInForm").hide(1000);
 	  	$("#signUpForm").show(1000);
+	  	$('#cutie').show(1000);
 	}); 
 
 	$("#signUpForm").hide();

@@ -79,10 +79,11 @@ p {
   text-shadow:5px 5px 5px #000000;
   float: left;
   line-height: inherit;
-  width: 260px;
-  height: 180px;
+  width: 280px;
+  height: 240px;
   text-align: center;
   margin-top: 40px;
+ 
   
 }
 
@@ -98,6 +99,8 @@ p {
   text-align: center;
   margin-top: 40px; 
   display: none;
+  width: 280px;
+  height: 260px;
 }
 
 
